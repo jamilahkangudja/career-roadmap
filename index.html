@@ -318,7 +318,11 @@
             
             if (currentStep === steps.length - 1) {
                 document.getElementById('next-btn').classList.add('bg-green-600', 'hover:bg-green-700');
-                document.getElementById('next-btn').onclick = () => window.close();
+                
+                // UPDATED: Redirect to Canvas Assignment on Finish
+                document.getElementById('next-btn').onclick = () => {
+                    window.parent.location.href = "https://unt.instructure.com/courses/140665/assignments/2967528?module_item_id=9147229";
+                };
             } else {
                 document.getElementById('next-btn').classList.remove('bg-green-600', 'hover:bg-green-700');
                 document.getElementById('next-btn').onclick = nextStep;
