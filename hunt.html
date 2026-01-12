@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Scavenger Hunt - BUSI 1200</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f3f4f6;
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .uno-font { font-family: 'Luckiest Guy', cursive; }
+        
+        .card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover { 
+            transform: translateY(-12px) scale(1.05); 
+            z-index: 10;
+        }
+
+        .red-card { background-color: #ed1c24; border: 6px solid white; }
+        .blue-card { background-color: #0054a6; border: 6px solid white; }
+        .yellow-card { background-color: #fdb813; border: 6px solid white; }
+        .green-card { background-color: #00a651; border: 6px solid white; }
+        .black-card { background-color: #1a1a1a; border: 6px solid white; }
+        .purple-card { background-color: #6b21a8; border: 6px solid white; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: popIn 0.5s ease-out; }
+
+        @keyframes popIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .uno-shadow { box-shadow: 8px 8px 0px rgba(0,0,0,0.15); }
+        
+        .inner-oval {
+            position: absolute;
+            width: 140%;
+            height: 80%;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: 10%;
+            left: -20%;
+            transform: rotate(-20deg);
+        }
+
+        .date-badge {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- Header Section -->
+    <div class="max-w-6xl mx-auto text-center mb-10">
+        <h1 class="uno-font text-6xl md:text-8xl text-slate-900 mb-2 tracking-tighter italic drop-shadow-sm">
+            SYLLABUS <span class="text-red-600">QUEST</span>
+        </h1>
+        <div class="inline-block bg-black text-white px-8 py-2 rounded-full font-black uppercase tracking-widest text-sm mb-8">
+            BUSI 1200 • SPRING 8-WEEK SESSION
+        </div>
+        
+        <div class="bg-white p-6 rounded-3xl border-4 border-black uno-shadow max-w-2xl mx-auto">
+            <h2 class="text-xl font-bold mb-2 italic">⚠️ Tech Check-In Required:</h2>
+            <p class="text-gray-600 text-sm">Attendance is logged via <span class="font-bold">Google Form</span>. Ensure your device is <span class="text-red-600 font-bold underline">charged</span> and connected to UNT Wi-Fi before class starts!</p>
+        </div>
+    </div>
+
+    <!-- Card Navigation -->
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <div onclick="showTab('contact')" class="card red-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic">01</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-center leading-none">The Instructor</span>
+        </div>
+        <div onclick="showTab('grading')" class="card blue-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic">02</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-center leading-none">Grades</span>
+        </div>
+        <div onclick="showTab('rules')" class="card yellow-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic">03</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-center leading-none">Attendance</span>
+        </div>
+        <div onclick="showTab('schedule')" class="card green-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic">04</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-center leading-none">Milestones</span>
+        </div>
+        <div onclick="showTab('ai')" class="card purple-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic">AI</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-center leading-none">AI Rules</span>
+        </div>
+        <div onclick="showTab('missable')" class="card black-card rounded-2xl p-6 h-44 flex flex-col items-center justify-center text-white uno-shadow">
+            <div class="inner-oval"></div>
+            <span class="uno-font text-5xl italic text-yellow-400">★</span>
+            <span class="font-black uppercase tracking-tighter text-sm mt-2 text-yellow-400 text-center leading-none">Trap Cards</span>
+        </div>
+    </div>
+
+    <!-- Content Displays -->
+    <div class="max-w-4xl mx-auto pb-20">
+        
+        <!-- Tab: Contact -->
+        <div id="contact" class="tab-content active bg-white border-[10px] border-red-600 rounded-[3rem] p-8 uno-shadow">
+            <h3 class="uno-font text-4xl italic text-red-600 uppercase mb-6">Instructor Intel</h3>
+            <div class="space-y-6">
+                <div>
+                    <p class="text-gray-400 font-black uppercase text-xs tracking-widest">Commanding Officer</p>
+                    <p class="text-4xl font-black text-slate-800">Jamilah C. Kangudja, M.Ed.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-100">
+                        <p class="font-black text-red-600 text-xs uppercase">Email</p>
+                        <p class="text-lg font-bold">jamilah.kangudja@unt.edu</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-100">
+                        <p class="font-black text-red-600 text-xs uppercase">Office Phone</p>
+                        <p class="text-lg font-bold">(940) 565-3384</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Grading -->
+        <div id="grading" class="tab-content bg-white border-[10px] border-blue-600 rounded-[3rem] p-8 uno-shadow">
+            <h3 class="uno-font text-4xl italic text-blue-600 uppercase mb-6">The Point Stack</h3>
+            <div class="grid gap-3">
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border-l-8 border-blue-600">
+                    <span class="font-bold">Toolkit (Resume, LinkedIn, Pitch)</span>
+                    <span class="uno-font text-2xl text-blue-600">30%</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border-l-8 border-blue-600">
+                    <span class="font-bold">Quizzes</span>
+                    <span class="uno-font text-2xl text-blue-600">25%</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border-l-8 border-blue-600">
+                    <span class="font-bold">Discussion Board Reflections</span>
+                    <span class="uno-font text-2xl text-blue-600">25%</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border-l-8 border-blue-600">
+                    <span class="font-bold">Attendance (Google Form Log)</span>
+                    <span class="uno-font text-2xl text-blue-600">20%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Rules -->
+        <div id="rules" class="tab-content bg-white border-[10px] border-yellow-500 rounded-[3rem] p-8 uno-shadow">
+            <h3 class="uno-font text-4xl italic text-yellow-600 uppercase mb-6">Attendance & Tech</h3>
+            <div class="space-y-4">
+                <div class="bg-yellow-50 p-6 rounded-3xl border-2 border-yellow-200">
+                    <p class="font-black uppercase text-sm text-yellow-700 mb-2">Google Form Log-In</p>
+                    <p class="text-gray-700 leading-relaxed">Attendance is tracked via a Google Form. Access will <span class="font-bold">NOT</span> be provided after the first 5 minutes of class.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white border-2 border-yellow-200 p-4 rounded-2xl flex items-center space-x-3">
+                        <div class="text-2xl">🔋</div>
+                        <p class="text-sm font-bold">Phones must be FULLY charged</p>
+                    </div>
+                    <div class="bg-white border-2 border-yellow-200 p-4 rounded-2xl flex items-center space-x-3">
+                        <div class="text-2xl">📡</div>
+                        <p class="text-sm font-bold">Stable Wi-Fi access required</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Schedule -->
+        <div id="schedule" class="tab-content bg-white border-[10px] border-green-600 rounded-[3rem] p-8 uno-shadow">
+            <h3 class="uno-font text-4xl italic text-green-600 uppercase mb-6">Key Milestones</h3>
+            <div class="space-y-4">
+                <div class="flex flex-col border-b pb-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-slate-800 uppercase tracking-tighter">Academic Advising</span>
+                        <span class="date-badge">Week 1: Jan 12 (Wed)</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Strategic educational planning session.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-slate-800 uppercase tracking-tighter">Resume Finalization</span>
+                        <span class="date-badge">Week 3: Jan 26 (Mon)</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Deadline for the professional identity toolkit.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3 bg-blue-50 p-2 rounded-xl border-blue-100">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-blue-700 uppercase tracking-tighter italic">Asynchronous Session</span>
+                        <span class="date-badge bg-blue-100 text-blue-700">Week 4: Feb 2 (Mon)</span>
+                    </div>
+                    <p class="text-xs text-blue-600 font-bold">Check Canvas for remote modules.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-red-600 uppercase tracking-tighter italic">Career Fair (3 PM - 6 PM)</span>
+                        <span class="date-badge bg-red-100 text-red-600">Week 5: Feb 11 (Wed)</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Connect with potential employers on-site.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3 bg-yellow-50 p-3 rounded-2xl border-yellow-200">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-slate-900 uppercase tracking-tighter">RCOB EDGE App Presentation</span>
+                        <span class="date-badge">Week 5: Feb 11 (Wed)</span>
+                    </div>
+                    <p class="text-sm text-gray-700 font-bold italic">Student Success reps present the professional development tracking tool.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3 bg-blue-50 p-2 rounded-xl border-blue-100">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-blue-700 uppercase tracking-tighter italic">Asynchronous Session</span>
+                        <span class="date-badge bg-blue-100 text-blue-700">Week 6: Feb 16 (Mon)</span>
+                    </div>
+                    <p class="text-xs text-blue-600 font-bold">Remote work day.</p>
+                </div>
+
+                <div class="flex flex-col border-b pb-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-black text-slate-800 uppercase tracking-tighter">Internships Presentation</span>
+                        <span class="date-badge">Week 7: Feb 23 (Mon)</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Navigating the internship search process.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: AI -->
+        <div id="ai" class="tab-content bg-white border-[10px] border-purple-600 rounded-[3rem] p-8 uno-shadow">
+            <h3 class="uno-font text-4xl italic text-purple-600 uppercase mb-4">AI "Assist" Policy</h3>
+            <div class="bg-purple-50 p-6 rounded-3xl border-2 border-purple-200 mb-6">
+                <p class="text-purple-900 font-bold text-lg mb-2 italic">🚦 Status: Yellow Light</p>
+                <p class="text-gray-700 leading-relaxed">
+                    AI is permitted for <span class="font-bold">brainstorming, outlining, and refining</span> your own ideas. However, submitting AI-generated content as your own final work is considered academic misconduct.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="border-2 border-dashed border-purple-300 p-4 rounded-2xl">
+                    <p class="font-black text-purple-600 uppercase text-xs mb-2">✅ DO USE FOR:</p>
+                    <ul class="text-sm space-y-2 text-gray-600 font-medium">
+                        <li>• Generating resume bullet point ideas</li>
+                        <li>• Practicing interview responses</li>
+                        <li>• Outlining professional emails</li>
+                    </ul>
+                </div>
+                <div class="border-2 border-dashed border-red-300 p-4 rounded-2xl bg-red-50">
+                    <p class="font-black text-red-600 uppercase text-xs mb-2">❌ DO NOT USE FOR:</p>
+                    <ul class="text-sm space-y-2 text-gray-600 font-medium">
+                        <li>• Copy-pasting entire essays</li>
+                        <li>• Completing quizzes or exams</li>
+                        <li>• Submitting without citation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Missable (The "Trap Cards") -->
+        <div id="missable" class="tab-content bg-slate-900 border-[10px] border-yellow-400 rounded-[3rem] p-8 uno-shadow text-white">
+            <h3 class="uno-font text-4xl italic text-yellow-400 uppercase mb-2">Trap Cards</h3>
+            <p class="text-slate-400 mb-8 font-bold uppercase tracking-widest text-xs">The details most students miss!</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-800 p-6 rounded-3xl border-2 border-slate-700">
+                    <div class="text-yellow-400 uno-font text-2xl mb-2 leading-none">The Wednesday Deadline</div>
+                    <p class="text-sm text-slate-300 leading-relaxed">Think Sunday is the last chance for late work? Nope. The <span class="text-white font-bold underline">absolute final day</span> to submit any late assignment is the following <span class="text-white font-bold underline italic">Wednesday</span>.</p>
+                </div>
+                
+                <div class="bg-slate-800 p-6 rounded-3xl border-2 border-slate-700">
+                    <div class="text-yellow-400 uno-font text-2xl mb-2 leading-none">The 5-Minute Window</div>
+                    <p class="text-sm text-slate-300 leading-relaxed">Late to class? If you arrive more than 5 minutes late, the <span class="text-white font-bold underline">Google Form</span> for attendance will be <span class="text-white font-bold underline">closed</span>. No manual adds!</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-3xl border-2 border-slate-700">
+                    <div class="text-yellow-400 uno-font text-2xl mb-2 leading-none">Shelter Areas</div>
+                    <p class="text-sm text-slate-300 leading-relaxed">Weather sirens? In the BLB, head to basement rooms <span class="text-white font-bold">055, 077, 090</span> or 1st floor rooms <span class="text-white font-bold">170, 155</span>.</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-3xl border-2 border-slate-700">
+                    <div class="text-yellow-400 uno-font text-2xl mb-2 leading-none">Fire Drills</div>
+                    <p class="text-slate-300 text-sm leading-relaxed">Evacuation site is the south side of <span class="text-white font-bold uppercase">Crumley Hall</span> in the grassy area, west of parking lot 24.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            const target = document.getElementById(tabId);
+            target.classList.add('active');
+            window.scrollTo({ top: document.querySelector('.max-w-4xl').offsetTop - 50, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
