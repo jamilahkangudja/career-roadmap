@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Audit: Professional Alignment & Skill Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            -webkit-print-color-adjust: exact;
+        }
+        .header-font {
+            font-family: 'Luckiest Guy', cursive;
+            letter-spacing: 0.05em;
+        }
+        .page {
+            background: #ffffff;
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.4in;
+            margin: 1rem auto;
+            position: relative;
+            border: 2px solid #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        
+        /* Interactive Input Styling */
+        input[type="text"], textarea {
+            border: none;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            width: 100%;
+            padding: 6px 8px;
+            /* Font size adjusted to 11pt/12pt equivalent */
+            font-size: 0.93rem; 
+            font-weight: 500;
+            color: #1e40af;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-bottom: 1px solid #2563eb;
+            background: #eff6ff;
+        }
+        
+        /* Ensures content is visible on print if it overflows */
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+            overflow: visible;
+        }
+
+        .section-header {
+            border-bottom: 2px solid #0f172a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.25rem;
+        }
+
+        @media print {
+            body { background-color: white; padding: 0; margin: 0; }
+            .page { margin: 0; border: none; box-shadow: none; width: 100%; padding: 0.3in; }
+            .no-print { display: none !important; }
+            input[type="text"], textarea {
+                background: transparent !important;
+                border-bottom: 1px solid #eee !important;
+            }
+        }
+
+        .instruction-bar {
+            max-width: 8.5in;
+            margin: 1rem auto;
+            background: #1e293b;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .label-text {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="instruction-bar no-print">
+        <div class="bg-blue-600 p-2 rounded-lg text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>
+        </div>
+        <div class="text-xs">
+            <p class="font-bold">STUDENT FILING SYSTEM:</p>
+            <p class="opacity-80">Complete all fields. Use <b>Ctrl/Cmd + P</b> and select <b>"Save as PDF"</b> to submit.</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="flex justify-between items-end mb-8 border-b-4 border-black pb-4">
+            <div>
+                <h1 class="header-font text-4xl text-blue-900 leading-none">CAREER AUDIT</h1>
+                <p class="font-bold text-xs text-slate-500 uppercase mt-1">O*NET OnLine & BLS Outlook Report</p>
+            </div>
+            <div class="w-1/3 space-y-2">
+                <div>
+                    <span class="label-text">Student Name</span>
+                    <input type="text" class="text-xs py-1" placeholder="Enter Full Name">
+                </div>
+                <div>
+                    <span class="label-text">Date of Audit</span>
+                    <input type="text" class="text-xs py-1" placeholder="MM / DD / YYYY">
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Anchors (Links) -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <label class="label-text flex items-center gap-1 mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    O*NET Occupation Link
+                </label>
+                <input type="text" class="text-[10px]" placeholder="https://www.onetonline.org/link/summary/...">
+            </div>
+            <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <label class="label-text flex items-center gap-1 mb-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    BLS Handbook Link
+                </label>
+                <input type="text" class="text-[10px]" placeholder="https://www.bls.gov/ooh/...">
+            </div>
+        </div>
+
+        <!-- Section 1: O*NET Skill Identification -->
+        <div class="mb-8">
+            <h2 class="section-header header-font text-xl text-blue-800 uppercase">I. Technical Competency Audit</h2>
+            <div class="grid grid-cols-2 gap-6 mb-4">
+                <div class="space-y-4">
+                    <div>
+                        <label class="label-text text-blue-900">High-Demand Skill / Tech #1</label>
+                        <input type="text" placeholder="e.g. SQL Database Management">
+                    </div>
+                    <div>
+                        <label class="label-text text-blue-900">Learning Pathway</label>
+                        <input type="text" placeholder="Certification or Course Provider">
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="label-text text-blue-900">High-Demand Skill / Tech #2</label>
+                        <input type="text" placeholder="e.g. Adobe Creative Suite">
+                    </div>
+                    <div>
+                        <label class="label-text text-blue-900">Learning Pathway</label>
+                        <input type="text" placeholder="University Workshop or Credential">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 border rounded-xl bg-blue-50/50">
+                <label class="label-text block mb-2 text-blue-900">Resume Optimization (O*NET Task Integration)</label>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-[10px] italic text-slate-500 mb-1">Current Bullet Point (Passive)</p>
+                        <textarea class="text-[11px] h-16" placeholder="Responsible for talking to customers..."></textarea>
+                    </div>
+                    <div>
+                        <p class="text-[10px] italic text-blue-700 mb-1 font-bold">Optimized Bullet Point (Active/O*NET Aligned)</p>
+                        <textarea class="text-[11px] h-16 border-blue-200" placeholder="Utilized CRM tools to facilitate client communication..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: BLS Market Analysis -->
+        <div class="mb-8">
+            <h2 class="section-header header-font text-xl text-orange-700 uppercase">II. Market Valuation & Reflection</h2>
+            <div class="grid grid-cols-4 gap-4 mb-4">
+                <div class="text-center">
+                    <label class="label-text block">Median Salary</label>
+                    <input type="text" class="text-center text-sm" placeholder="$00,000">
+                </div>
+                <div class="text-center">
+                    <label class="label-text block">Typical Education</label>
+                    <input type="text" class="text-center text-sm" placeholder="Degree Type">
+                </div>
+                <div class="text-center">
+                    <label class="label-text block">Job Growth Rate</label>
+                    <input type="text" class="text-center text-sm" placeholder="% Percentage">
+                </div>
+                <div class="text-center">
+                    <label class="label-text block">Market Status</label>
+                    <input type="text" class="text-center text-sm" placeholder="e.g. Sunsetting/Fast">
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <label class="label-text block mb-1">Professional Synthesis (Market Alignment Reflection)</label>
+                <p class="text-[10px] text-slate-400 mb-2 italic">Provide a formal academic paragraph analyzing how the market outlook (BLS) aligns with your personal skill development goals (O*NET).</p>
+                <textarea class="min-h-[140px] leading-relaxed text-sm" placeholder="Compose your formal reflection here..."></textarea>
+            </div>
+        </div>
+
+        <!-- Section 3: Roadmap -->
+        <div class="mb-4">
+            <h2 class="section-header header-font text-xl text-green-700 uppercase">III. Skill Acquisition Roadmap</h2>
+            <div>
+                <label class="label-text block mb-1">Strategic Deployment Plan</label>
+                <p class="text-[10px] text-slate-400 mb-2 italic">Outline your concrete steps for the next two semesters. Address specific milestones for acquiring the technical skills identified in Section I.</p>
+                <textarea class="min-h-[140px] leading-relaxed text-sm" placeholder="Outline your 6-12 month execution plan..."></textarea>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pt-4 border-t border-slate-200 flex justify-between items-center opacity-50">
+            <p class="text-[8px] font-bold uppercase tracking-widest">Industry Readiness Audit v2.1</p>
+            <p class="text-[8px] font-bold uppercase tracking-widest">Career & Professional Development</p>
+        </div>
+    </div>
+
+</body>
+</html>
